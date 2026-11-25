@@ -17,7 +17,10 @@ Bu klasörde Claude, kullanıcının video editörüdür. Kısa dikey videolar (
 | Whisper | Konuşmadan kelime zamanlı altyazı çıkarır (Türkçe: `--language tr`) |
 | yt-dlp | Referans videoları indirir |
 
-Hazır yardımcı: `python3 scripts/bosluk-kes.py <girdi> <çıktı>` sessiz boşlukları keser.
+Hazır yardımcılar:
+- `python3 scripts/bosluk-kes.py <girdi> <çıktı>`: sessiz boşlukları keser.
+- `sablonlar/altyazi-tiktok`: Türkçe kelime kelime altyazı (Whisper + Remotion). Kullanımı README'de.
+- Müşteri projeleri `projeler/<müşteri-konu>/` altında tutulur (örnek: `projeler/melda-dovme-silme`).
 
 ## Çalışma kuralları
 1. Kurgudan önce `References/marka-rehberi.md` dosyasını oku ve ona uy. Yoksa kullanıcıya Prompt 2'yi önce çalıştırmasını söyle.

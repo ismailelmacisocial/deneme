@@ -38,3 +38,29 @@ Sonra düzeltmeleri düz dille söyleyin, örneğin: `yazıları büyüt`.
 - `ornekler/`: Remotion ve HyperFrames test kompozisyonları
 
 Gereksinimler: Node.js 18+ ve Python 3.9+. FFmpeg macOS'ta Homebrew ile kurulur.
+
+## Ek araçlar (2. reel'den)
+
+**Kurulu: Türkçe TikTok altyazı şablonu** (`sablonlar/altyazi-tiktok`, kaynak: remotion-dev/template-tiktok)
+Konuşmalı videolara kelime kelime yanan, büyük harfli altyazı ekler. Türkçeye uyarlandı: Whisper modeli `medium` ve dil `tr`. Orijinal yazı tipinde ş/ğ/ı/İ/ö/ü/ç olmadığı için Montserrat ile değiştirildi.
+```
+cd sablonlar/altyazi-tiktok
+npm install
+# videoyu public/ klasörüne koy, sonra:
+node sub.mjs public/video.mp4     # Whisper ile altyazı çıkarır (ilk seferde ~1.5 GB model iner)
+npx remotion render CaptionedVideo --props='{"src":"/video.mp4"}'
+```
+Not: `lang="tr"` büyük harf kuralı yüzünden "PicoWay" gibi marka adları "PİCOWAY" yazılır. İstenmezse altyazı JSON'unda o kelime elle düzeltilir.
+
+**Kendin kurman gereken: TikTok beceri paketi** (iart-ai/tiktok-video-skills)
+Claude'a Reels kurgu bilgisi öğretir: ilk 3 saniye kancası, tempo, karaoke altyazı, alt bant (isim/unvan), geri sayım. Kendi bilgisayarında bu klasörde çalıştır:
+```
+npx skills add iart-ai/tiktok-video-skills -a claude-code
+```
+
+**İsteğe bağlı: claude-code-video-toolkit** (digitalsamba)
+Yapay zeka seslendirme, **telifsiz müzik üretimi (ACE-Step)**, görsel üretimi ve ses seviyesi kontrolü. Müzik sorununu çözer. Ancak Modal (bulut GPU, aylık 30$ ücretsiz) hesabı ve kurulum ister. Ücretsiz açık kaynak seslendirme Türkçeyi desteklemeyebilir; Türkçe ses için ElevenLabs (ücretli) gerekir.
+```
+git clone https://github.com/digitalsamba/claude-code-video-toolkit.git
+cd claude-code-video-toolkit && uv sync && claude   # sonra /setup
+```

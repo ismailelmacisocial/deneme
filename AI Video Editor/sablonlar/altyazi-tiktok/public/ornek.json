@@ -1,0 +1,93 @@
+[
+ {
+  "text": " Bugün",
+  "startMs": 200,
+  "endMs": 580,
+  "timestampMs": 390,
+  "confidence": 1
+ },
+ {
+  "text": " PicoWay",
+  "startMs": 620,
+  "endMs": 1140,
+  "timestampMs": 880,
+  "confidence": 1
+ },
+ {
+  "text": " lazer",
+  "startMs": 1180,
+  "endMs": 1560,
+  "timestampMs": 1370,
+  "confidence": 1
+ },
+ {
+  "text": " ile",
+  "startMs": 1600,
+  "endMs": 1980,
+  "timestampMs": 1790,
+  "confidence": 1
+ },
+ {
+  "text": " dövme",
+  "startMs": 2020,
+  "endMs": 2400,
+  "timestampMs": 2210,
+  "confidence": 1
+ },
+ {
+  "text": " silme",
+  "startMs": 2440,
+  "endMs": 2820,
+  "timestampMs": 2630,
+  "confidence": 1
+ },
+ {
+  "text": " işlemi",
+  "startMs": 2860,
+  "endMs": 3380,
+  "timestampMs": 3120,
+  "confidence": 1
+ },
+ {
+  "text": " yapıyoruz.",
+  "startMs": 3420,
+  "endMs": 3940,
+  "timestampMs": 3680,
+  "confidence": 1
+ },
+ {
+  "text": " Şimdi",
+  "startMs": 3980,
+  "endMs": 4360,
+  "timestampMs": 4170,
+  "confidence": 1
+ },
+ {
+  "text": " ilk",
+  "startMs": 4400,
+  "endMs": 4780,
+  "timestampMs": 4590,
+  "confidence": 1
+ },
+ {
+  "text": " atışlar",
+  "startMs": 4820,
+  "endMs": 5340,
+  "timestampMs": 5080,
+  "confidence": 1
+ },
+ {
+  "text": " başlıyor,",
+  "startMs": 5380,
+  "endMs": 5900,
+  "timestampMs": 5640,
+  "confidence": 1
+ },
+ {
+  "text": " izleyin!",
+  "startMs": 5940,
+  "endMs": 6460,
+  "timestampMs": 6200,
+  "confidence": 1
+ }
+]
