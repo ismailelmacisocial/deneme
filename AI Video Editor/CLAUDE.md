@@ -17,6 +17,8 @@ Bu klasörde Claude, kullanıcının video editörüdür. Kısa dikey videolar (
 | Whisper | Konuşmadan kelime zamanlı altyazı çıkarır (Türkçe: `--language tr`) |
 | yt-dlp | Referans videoları indirir |
 
+Windows notları: Whisper `py -3.12 -m whisper` ile çalışır. 2. reel'in depoları `araclar\` içindedir. Beceriler (tiktok-video-skills, ad-video-skills, motion-video-skill) `.claude\skills` içine kurulur.
+
 Hazır yardımcılar:
 - `python3 scripts/bosluk-kes.py <girdi> <çıktı>`: sessiz boşlukları keser.
 - `sablonlar/altyazi-tiktok`: Türkçe kelime kelime altyazı (Whisper + Remotion). Kullanımı README'de.

@@ -1,102 +1,144 @@
-# Sıfırdan kurulum rehberi
+# Sıfırdan kurulum rehberi (Windows 11)
 
-Bu rehber iki reel'deki kurulumun tamamını kapsar:
-1. **AI video editör kurulumu:** Remotion, HyperFrames, GSAP, FFmpeg, Whisper, yt-dlp ve 3 prompt
-2. **Video repoları:** Türkçe otomatik altyazı, TikTok beceri paketi, isteğe bağlı müzik ve seslendirme araç seti
+Bu rehber iki reel'deki kurulumların **tamamını** kapsar. Hiç bilmeyen birine anlatır gibi yazıldı.
 
-Komutlar Mac içindir. Windows farkları her adımda ayrıca yazılı.
+**Kurulacaklar:**
+- **1. reel:** Remotion, HyperFrames, GSAP, FFmpeg, Whisper, yt-dlp ve 3 prompt
+- **2. reel (5 depo):** claude-code-video-toolkit, ClaudeAnimationBase, motion-skills, motion-video-skill, template-tiktok
+
+Toplam süre yaklaşık 30–45 dakika. Çoğu bekleme.
 
 ---
 
-## Adım 1: Claude masaüstü uygulaması
-1. https://claude.ai/download adresinden uygulamayı indirip kurun ve hesabınızla giriş yapın.
-2. Uygulamanın üstünde **Sohbet / Cowork / Code** sekmeleri olmalı. **Code** sekmesini kullanacağız.
+## Hazır olanlar (Claude'un yaptıkları)
+- **Klasör yapısı:** `Raw Footage`, `References`, `Exports` klasörleri hazır.
+- **Talimatlar ve promptlar:** `CLAUDE.md` Claude'a bu klasörde video editörü olarak nasıl çalışacağını anlatır. 3 prompt bu rehberin sonunda.
+- **Kurulum betiği:** `kurulum.ps1` aşağıdaki her şeyi tek seferde kurar ve test eder.
+- **Depo 5, Türkçe altyazı:** `sablonlar\altyazi-tiktok` klasöründe, **Türkçeye uyarlanmış** olarak hazır. Orijinalinde Türkçe harfler bozuk çıkıyordu, düzeltildi.
+- **Boşluk kesici:** `scripts\bosluk-kes.py` videodaki sessiz anları keser.
+- **Test edilenler:** Remotion, HyperFrames, GSAP, FFmpeg ve yt-dlp bulutta test edildi. Whisper'ın altyazı testi bulutta yapılamadı (model dosyası indirilemedi). Windows betiği Windows'ta denenmedi; hata çıkarsa ekran görüntüsünü Claude'a gönderin.
 
-> Neden masaüstü? Tarayıcıdaki Claude bilgisayarınızdaki dosyalara ve programlara erişemez. Masaüstü uygulaması "Local" modda bilgisayarınızda komut çalıştırabilir.
+---
 
-## Adım 2: Temel programlar (bir kez yapılır)
-**Mac:**
-1. **Terminal**'i açın (Cmd + Boşluk, "Terminal" yazın).
-2. Homebrew'u kurun. https://brew.sh sayfasındaki tek satırlık komutu kopyalayıp Terminal'e yapıştırın. Şifre sorarsa Mac şifrenizi yazın (yazarken görünmez, normaldir). Sonunda ekranda "Next steps" altında 2 komut çıkarsa onları da çalıştırın.
-3. Node.js'i kurun: `brew install node`
-4. Kontrol: `node -v` komutu `v22` veya üzeri bir sürüm yazmalı.
+## Senin yapacakların
 
-**Windows:** PowerShell'i açın ve şunları çalıştırın:
+### ADIM 1: Claude masaüstü uygulamasını kur
+1. Tarayıcıda **https://claude.ai/download** adresini aç.
+2. **Windows için indir** düğmesine bas. İnen dosyayı çift tıklayıp kur.
+3. Uygulamayı aç ve Claude hesabınla giriş yap.
+4. Üst tarafta **Sohbet · Cowork · Code** yazılarını gör. Video işleri için hep **Code** kullanılacak.
+
+> Neden? Tarayıcıdaki Claude bilgisayarındaki dosyaları göremez. Masaüstü uygulaması görür ve senin yerine program çalıştırabilir.
+
+### ADIM 2: Klasörü GitHub'dan indir
+1. Tarayıcıda **https://github.com/ismailelmacisocial/deneme** adresini aç (GitHub hesabınla giriş yap).
+2. Sol üstte **main** yazan düğmeye tıkla ve listeden **claude/video-tools-analysis-a1b5av** dalını seç.
+3. Yeşil **<> Code** düğmesine tıkla, en alttaki **Download ZIP**'i seç.
+4. İndirilenler klasöründeki ZIP dosyasına sağ tıkla → **Tümünü ayıkla** → **Ayıkla**.
+5. Açılan klasörün içinde **AI Video Editor** klasörünü bul.
+6. Bu klasörü **Belgeler**'e taşı. Sürükleyip bırakabilirsin.
+
+Sonuç: `Belgeler\AI Video Editor` klasörün hazır.
+
+### ADIM 3: Kurulum betiğini çalıştır
+1. **Belgeler\AI Video Editor** klasörünü aç.
+2. Klasörde **boş bir yere sağ tıkla** → **Terminalde aç**.
+   (Göremezsen: **Diğer seçenekleri göster** → **Terminalde aç**.)
+3. Açılan pencereye şunu **aynen** yapıştır (sağ tık = yapıştır) ve **Enter**'a bas:
+   ```
+   powershell -ExecutionPolicy Bypass -File .\kurulum.ps1
+   ```
+4. Bekle. Programlar sırayla kurulacak.
+   - "Bu uygulamanın cihazınızda değişiklik yapmasına izin veriyor musunuz?" diye sorarsa **Evet** de. Birkaç kez sorabilir.
+   - Whisper kurulumu uzun sürebilir (2–3 GB indirir), pencereyi kapatma.
+5. Sonunda yeşil renkte **HEPSİ HAZIR** yazmalı.
+   - Kırmızı **HATA** satırları varsa: pencereyi **kapat**, ADIM 3'ü **bir kez daha** yap. İkinci seferde genelde düzelir, çünkü yeni kurulan programlar ancak yeni pencerede tanınır.
+   - Yine kırmızı varsa pencerenin ekran görüntüsünü Claude'a gönder.
+6. Kontrol: **Exports** klasöründe 3 video olmalı: `remotion-test`, `gsap-test`, `hf-test`. Açılıyorlarsa kurulum tamam.
+
+Betiğin kurdukları:
+
+| Ne | Ne işe yarar |
+|---|---|
+| Node.js, Python, Git, uv, Chrome | Diğer araçların çalışması için gereken temel programlar |
+| FFmpeg | Videoyu keser, birleştirir, dışa aktarır |
+| yt-dlp | Referans videoları indirir |
+| Whisper | Konuşmayı yazıya döker (altyazı) |
+| Remotion, HyperFrames, GSAP | Videoyu kurar, hareketli yazı ve grafik yapar |
+| **Depo 1:** claude-code-video-toolkit | `araclar\` içine indirilir (ayarı ADIM 6'da) |
+| **Depo 2:** ClaudeAnimationBase | `araclar\` içine indirilir, kurulur |
+| **Depo 3:** motion-skills | Bu bir paket listesi. İçinden Reels için `tiktok-video-skills` ve reklam için `ad-video-skills` kurulur |
+| **Depo 4:** motion-video-skill | Claude becerisi olarak kurulur (ses kısmı için ADIM 7) |
+| **Depo 5:** template-tiktok | Türkçe altyazı şablonu kurulur |
+
+### ADIM 4: Klasörü Claude'da aç
+1. Claude uygulamasında **Code** sekmesine geç.
+2. **Yeni oturum** başlat.
+3. **Ortam: Local** seç.
+4. **Klasör seç** → **Belgeler\AI Video Editor**.
+
+Artık Claude senin video editörün. Bu klasörde açtığın her oturumda kuralları kendisi okur.
+
+### ADIM 5: Kurulumu Claude'a kontrol ettir (Prompt 1)
+Şunu yapıştır:
 ```
-winget install OpenJS.NodeJS.LTS Gyan.FFmpeg yt-dlp.yt-dlp Python.Python.3.12 Git.Git
+Video editörüm ol. Remotion, HyperFrames, GSAP, FFmpeg, Whisper ve yt-dlp'nin kurulu olduğunu ve çalıştığını test et. Eksik varsa kurulum.ps1'i çalıştır veya düzelt. Hazır olunca haber ver.
 ```
-Sonra PowerShell'i kapatıp yeniden açın.
+Claude komut çalıştırmak için izin isterse **İzin ver** de.
 
-## Adım 3: Klasörü bilgisayara alın
-1. GitHub'da `ismailelmacisocial/deneme` deposunu açın.
-2. Sol üstteki dal menüsünden `claude/video-tools-analysis-a1b5av` dalını seçin. Pull request birleştirildiyse `main` dalını seçin.
-3. Yeşil **Code** düğmesi → **Download ZIP**.
-4. ZIP'i açın. İçindeki **AI Video Editor** klasörünü **Belgeler**'e taşıyın.
+### ADIM 6: Müzik ve seslendirme araç setini ayarla (Depo 1, isteğe bağlı)
+**Ne işe yarar:** Yapay zeka ile **telifsiz müzik** üretir, seslendirme yapar, görsel üretir.
+**Ne gerektirir:** Ücretsiz bir Modal hesabı (bulut ekran kartı, ayda 30$ ücretsiz kullanım).
+1. **https://modal.com** adresinde **Sign up** ile hesap aç.
+2. Claude uygulamasında **yeni bir Code oturumu** aç. Bu sefer klasör olarak `Belgeler\AI Video Editor\araclar\claude-code-video-toolkit` seç.
+3. Sohbete `/setup` yaz ve Enter'a bas.
+4. Claude sana adım adım ne yapacağını söyleyecek: Modal'a bağlanma, ses ayarı vb. Yaklaşık 5 dakika sürer.
+5. Bundan sonra müzik lazım olduğunda bu oturumda iste, örneğin "30 saniyelik sakin, lüks klinik havasında müzik üret". Çıkan müziği `AI Video Editor\References` klasörüne koy.
 
-## Adım 4: Claude'da klasörü açın
-Claude uygulaması → **Code** → **Yeni oturum** → Ortam: **Local** → Klasör: **Belgeler/AI Video Editor**.
-Claude artık bu klasörü görüyor. `CLAUDE.md` dosyası, Claude'a bu klasörde video editörü olarak nasıl çalışacağını otomatik olarak anlatır.
+> Türkçe seslendirme için ücretsiz model yetersiz kalabilir. İyi Türkçe ses için ElevenLabs (ücretli) gerekir.
 
-## Adım 5: Prompt 1, araçların kurulumu
-Claude'a şunu yapıştırın:
+### ADIM 7: Hareketli grafik becerisinin ses kısmı (Depo 4, isteğe bağlı)
+Beceri kuruldu. Ama ses, müzik ve efekt üretmek için `multix` adlı ayrı bir programa ve şu iki anahtara ihtiyaç var:
+- Gemini API anahtarı (ücretsiz): https://aistudio.google.com
+- ElevenLabs API anahtarı (ücretli): https://elevenlabs.io
+
+`multix`'in nereden kurulacağı depoda yazmıyor. Kullanmak istersen Claude'a şunu sor: "motion-video-skill için multix'i nasıl kurarım?"
+Ayrıca bu beceri **yatay (YouTube)** video üretiyor. Reels için Claude'a "dikey 1080x1920 yap" demen gerekir.
+
+### ADIM 8: Çizgi film karakteri (Depo 2, kullanırsan)
+`araclar\ClaudeAnimationBase` klasörünü Claude'da ayrı bir oturumda aç ve şunu yaz:
 ```
-Video editörüm ol. Remotion, HyperFrames, GSAP, FFmpeg, Whisper ve yt-dlp'yi kur, her birini test et. Hazır olunca haber ver. Kurulum için klasördeki kurulum.sh betiğini kullan.
+Read ANIMATION_GUIDE.md, then make a 15-second video of Clawd waving hello.
 ```
-Claude komut çalıştırmak için izin isteyecek, **İzin ver** deyin. Sonunda `Exports` klasöründe 3 küçük test videosu oluşur: remotion-test, gsap-test, hf-test. Açılıyorlarsa kurulum tamam.
+Uyarılar:
+- **Clawd, Claude'un (Anthropic) maskotudur.** Kişisel denemeler için uygundur. Kendi markan veya müşteri işi için Claude'dan karakteri değiştirmesini iste, örneğin "Clawd yerine kendi karakterimi çiz".
+- Ekran kartı zayıf bilgisayarda yavaş çalışır.
 
-> Kendiniz yapmak isterseniz: Terminal'de `cd ~/Documents/"AI Video Editor"` ve ardından `./kurulum.sh`.
-> Windows'ta kurulum.sh çalışmaz. Prompt 1'i yapıştırmanız yeterli, Claude Windows komutlarıyla kurar.
-
-## Adım 6: Türkçe otomatik altyazı
-Kurulum betiği bunu da hazırlar. İlk kullanımda Claude'a şunu söyleyin:
-```
-sablonlar/altyazi-tiktok ile Raw Footage'daki [DOSYA ADI] videosuna Türkçe altyazı ekle.
-```
-İlk seferde yaklaşık 1,5 GB Whisper modeli iner, beklemeniz normal.
-
-## Adım 7: TikTok beceri paketi
-Claude'a Reels tecrübesi kazandırır: ilk 3 saniye kancası, tempo, karaoke altyazı, isim/unvan alt bandı.
-Terminal'de, AI Video Editor klasörünün içinde:
-```
-npx skills add iart-ai/tiktok-video-skills -a claude-code
-```
-Sorulan sorulara Enter ile devam edin. Sonra Claude'da yeni bir oturum açın ki becerileri görsün.
-
-## Adım 8 (isteğe bağlı): Müzik ve seslendirme araç seti
-Yapay zeka ile **telifsiz müzik** üretir, seslendirme ve görsel yapar. Ancak bulut GPU hesabı ister.
-1. https://modal.com adresinde hesap açın (aylık 30$ ücretsiz kullanım).
-2. Terminal'de:
-```
-brew install uv
-cd ~/Documents
-git clone https://github.com/digitalsamba/claude-code-video-toolkit.git
-```
-3. Claude'da bu klasörü ayrı bir oturumda açıp `/setup` yazın. Kurulum yaklaşık 5 dakika sürer ve Claude adım adım yönlendirir.
-
-Not: Ücretsiz seslendirme modeli Türkçeyi iyi desteklemeyebilir. Türkçe ses için ElevenLabs (ücretli) gerekir.
-
-## Adım 9: Prompt 2, tarzınız (marka rehberi)
-Instagram'da beğendiğiniz tarzda 3–5 reel seçin ve linklerini kopyalayın.
+### ADIM 9: Kendi tarzını öğret (Prompt 2)
+1. Instagram'da beğendiğin tarzda **3–5 reel** bul. Her birinde **⋯ → Bağlantıyı kopyala** yap.
+2. AI Video Editor oturumunda şunu yapıştır ve linkleri altına ekle:
 ```
 Bu 3-5 videoyu incele ve marka rehberimi oluştur. Onlardan ilham al, ama kopyalama.
 https://www.instagram.com/reel/...
 https://www.instagram.com/reel/...
 https://www.instagram.com/reel/...
 ```
-Claude videoları `References` klasörüne indirir ve `References/marka-rehberi.md` dosyasını yazar.
-Instagram indirmeyi engellerse Claude'a şunu söyleyin: "yt-dlp'de --cookies-from-browser chrome kullan". Bunun için Chrome'da Instagram hesabınız açık olmalı.
+Instagram indirmeyi engellerse Claude'a şunu yaz: "yt-dlp'de --cookies-from-browser chrome kullan". Bunun için Chrome'da Instagram hesabın açık olmalı.
 
-## Adım 10: Prompt 3, ilk kurgu
-Videonuzu çekin, **Raw Footage** klasörüne atın ve şunu yapıştırın:
+### ADIM 10: İlk kurgu (Prompt 3)
+1. Videonu çek ve bilgisayara at.
+2. Dosyayı **AI Video Editor\Raw Footage** klasörüne koy.
+3. Şunu yapıştır (köşeli parantezin yerine dosyanın adını yaz):
 ```
 Raw Footage'daki [DOSYA ADI] videomu Instagram Reels'e çevir. Boşlukları kes, altyazı, müzik ve hareketli grafik ekle.
 ```
-Bitmiş video **Exports** klasörüne gelir. Düzeltmeleri düz dille isteyin: "yazıları büyüt", "müziği kıs", "ilk 2 saniyeyi kes".
+4. Bitmiş video **Exports** klasörüne gelir.
+5. Beğenmediğin yeri düz dille söyle: "yazıları büyüt", "ilk 2 saniyeyi kes", "altyazı sarı olsun".
 
 ---
 
-## Sorun çözme
-- **"command not found":** Terminal'i kapatıp yeniden açın, sonra tekrar deneyin.
-- **Claude izin istiyor:** Bu normal. Bilgisayarınızda komut çalıştırmadan önce sorar.
-- **Video render çok yavaş:** Normal. Bilgisayar her kareyi tek tek çizer, 30 saniyelik video birkaç dakika sürebilir.
-- **Lisans:** Remotion, 4 veya daha fazla çalışanı olan şirketlerde ticari kullanım için ücretli lisans ister. Bireysel kullanım ve 3 kişiye kadar ekipler ücretsizdir.
+## Takılırsan
+- **"... tanınmıyor" / "not recognized" hatası:** Terminal penceresini kapat, yenisini aç, komutu tekrar dene.
+- **Kırmızı yazılar:** Ekran görüntüsünü al, Claude'a gönder.
+- **Video oluşturmak yavaş:** Normal. 30 saniyelik video birkaç dakika sürebilir.
+- **Lisans:** Remotion; bireysel kullanım ve 3 kişiye kadar ekipler için ücretsiz. 4 ve daha fazla çalışanlı şirketler ücretli lisans almalı.
