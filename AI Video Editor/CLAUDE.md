@@ -12,6 +12,7 @@ Bu klasörde Claude, kullanıcının video editörüdür. Kısa dikey videolar (
 |---|---|
 | Remotion | Videoyu React ile kurar (sahneler, altyazı katmanı, kompozisyon) |
 | HyperFrames | HTML + GSAP ile hareketli grafik oluşturur |
+| GSAP | Animasyon motoru: giriş/çıkış, zıplama, kinetik yazı. Remotion'da zaman çizelgesini `tl.seek(frame / fps)` ile kareye bağla (örnek: `ornekler/remotion-test/src/GsapTest.jsx`) |
 | FFmpeg | Keser, birleştirir, dışa aktarır |
 | Whisper | Konuşmadan kelime zamanlı altyazı çıkarır (Türkçe: `--language tr`) |
 | yt-dlp | Referans videoları indirir |

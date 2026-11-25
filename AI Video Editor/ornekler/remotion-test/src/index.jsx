@@ -1,5 +1,6 @@
 import React from 'react';
 import {registerRoot, Composition, AbsoluteFill, useCurrentFrame, interpolate} from 'remotion';
+import {GsapTest} from './GsapTest';
 const Test = () => {
   const f = useCurrentFrame();
   const o = interpolate(f, [0, 15], [0, 1], {extrapolateRight: 'clamp'});
@@ -11,5 +12,10 @@ const Test = () => {
     </AbsoluteFill>
   );
 };
-const Root = () => <Composition id="Test" component={Test} durationInFrames={60} fps={30} width={1080} height={1920} />;
+const Root = () => (
+  <>
+    <Composition id="Test" component={Test} durationInFrames={60} fps={30} width={1080} height={1920} />
+    <Composition id="GsapTest" component={GsapTest} durationInFrames={60} fps={30} width={1080} height={1920} />
+  </>
+);
 registerRoot(Root);
