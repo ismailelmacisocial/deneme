@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "historyId": "2385c383-bd13-4cd8-855b-160e9bf9c8b7",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "729e31835a21c7b42ee006e2aacc63016abc05d26883f871ad3bf206943f2cfb",
+      "content": "/root/.cache/hyperframes/history/2385c383-bd13-4cd8-855b-160e9bf9c8b7/blobs/72/729e31835a21c7b42ee006e2aacc63016abc05d26883f871ad3bf206943f2cfb"
+    },
+    "CLAUDE.md": {
+      "hash": "729e31835a21c7b42ee006e2aacc63016abc05d26883f871ad3bf206943f2cfb",
+      "content": "/root/.cache/hyperframes/history/2385c383-bd13-4cd8-855b-160e9bf9c8b7/blobs/72/729e31835a21c7b42ee006e2aacc63016abc05d26883f871ad3bf206943f2cfb"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/2385c383-bd13-4cd8-855b-160e9bf9c8b7/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "23fcd75bd92824a12b9bce38dc195bf525939be992cf5aebf21a01557c3955b4",
+      "content": "/root/.cache/hyperframes/history/2385c383-bd13-4cd8-855b-160e9bf9c8b7/blobs/23/23fcd75bd92824a12b9bce38dc195bf525939be992cf5aebf21a01557c3955b4"
+    },
+    "meta.json": {
+      "hash": "7093088c247387428f849a4b413400ae7b239aa22c3dde11907e17979710b49f",
+      "content": "/root/.cache/hyperframes/history/2385c383-bd13-4cd8-855b-160e9bf9c8b7/blobs/70/7093088c247387428f849a4b413400ae7b239aa22c3dde11907e17979710b49f"
+    },
+    "package.json": {
+      "hash": "be846fd053a1dddfa88821afea6cc51db6d7488d99407f78e86ce8778aedc219",
+      "content": "/root/.cache/hyperframes/history/2385c383-bd13-4cd8-855b-160e9bf9c8b7/blobs/be/be846fd053a1dddfa88821afea6cc51db6d7488d99407f78e86ce8778aedc219"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "779abe7c-7b7e-4668-80b2-348595ca211f",
+      "completedAt": 1795607614629,
+      "output": "/home/user/deneme/AI Video Editor/tests/hf-test.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

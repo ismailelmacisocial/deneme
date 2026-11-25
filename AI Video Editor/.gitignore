@@ -1,0 +1,11 @@
+node_modules/
+Exports/*
+!Exports/.gitkeep
+Raw Footage/*
+!Raw Footage/.gitkeep
+References/*
+!References/.gitkeep
+renders/
+*.mp4
+*.mov
+*.wav

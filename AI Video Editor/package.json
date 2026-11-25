@@ -1,0 +1,21 @@
+{
+  "name": "ai-video-editor",
+  "version": "1.0.0",
+  "description": "Claude ile yapay zeka video kurgu kurulumu",
+  "scripts": {
+    "remotion-test": "remotion render ornekler/remotion-test/src/index.jsx Test Exports/remotion-test.mp4",
+    "hyperframes-test": "cd ornekler/hf-test && hyperframes render -o ../../Exports/hf-test.mp4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remotion/bundler": "^4.0.547",
+    "@remotion/cli": "^4.0.547",
+    "@remotion/renderer": "^4.0.547",
+    "hyperframes": "^0.9.94",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.547"
+  }
+}
