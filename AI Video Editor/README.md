@@ -5,7 +5,7 @@ Claude'u kendi bilgisayarınızda video editörüne çeviren kurulum. İzlenen r
 ## 5 adım
 1. **Claude masaüstü uygulaması:** Claude Code'u tarayıcıda değil, masaüstü uygulamasında açın.
 2. **Klasör + Claude Code:** Bu `AI Video Editor` klasörünü bilgisayarınıza (ör. Belgeler) koyun. Klasörde `Raw Footage`, `References` ve `Exports` hazır. Claude'da **Code → Yeni oturum → Ortam: Local → Klasör: AI Video Editor** seçin.
-3. **5 kurgu aracı:** Aşağıdaki Prompt 1'i yapıştırın. İsterseniz `./kurulum.sh` komutunu kendiniz de çalıştırabilirsiniz.
+3. **5 kurgu aracı + GSAP:** Aşağıdaki Prompt 1'i yapıştırın. GSAP animasyon motorudur; Remotion ve HyperFrames içinde kullanılır. İsterseniz `./kurulum.sh` komutunu kendiniz de çalıştırabilirsiniz.
 4. **Zevkiniz (3–5 referans):** Beğendiğiniz tarzda 3–5 video seçip linklerini Prompt 2'ye ekleyin.
 5. **İlk kurgu:** Videonuzu çekin, `Raw Footage` klasörüne atın ve Prompt 3'ü yapıştırın.
 
@@ -13,7 +13,7 @@ Claude'u kendi bilgisayarınızda video editörüne çeviren kurulum. İzlenen r
 
 **Prompt 1 · Kurulum**
 ```
-Video editörüm ol. Remotion, HyperFrames, FFmpeg, Whisper ve yt-dlp'yi kur, her birini test et. Hazır olunca haber ver.
+Video editörüm ol. Remotion, HyperFrames, GSAP, FFmpeg, Whisper ve yt-dlp'yi kur, her birini test et. Hazır olunca haber ver.
 ```
 
 **Prompt 2 · Zevkin**
