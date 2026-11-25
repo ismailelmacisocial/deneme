@@ -32,6 +32,7 @@ Raw Footage'daki [DOSYA ADI] videomu Instagram Reels'e çevir. Boşlukları kes,
 Sonra düzeltmeleri düz dille söyleyin, örneğin: `yazıları büyüt`.
 
 ## İçerik
+- `KURULUM-REHBERI.md`: sıfırdan adım adım kurulum
 - `CLAUDE.md`: Claude'un bu klasörde nasıl çalışacağı
 - `kurulum.sh`: araçları kurar ve test eder
 - `scripts/bosluk-kes.py`: FFmpeg ile sessiz boşlukları keser
