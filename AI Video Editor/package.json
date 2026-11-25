@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/montserrat": "^5.3.0",
     "@remotion/bundler": "^4.0.547",
     "@remotion/cli": "^4.0.547",
     "@remotion/renderer": "^4.0.547",
