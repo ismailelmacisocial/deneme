@@ -43,6 +43,7 @@ WingetKur 'Python.Python.3.12'  'Python 3.12'
 WingetKur 'Git.Git'             'Git'
 WingetKur 'astral-sh.uv'        'uv'
 WingetKur 'Google.Chrome'       'Google Chrome'
+WingetKur 'Microsoft.VCRedist.2015+.x64' 'Visual C++ (Whisper/PyTorch için gerekli)'
 PathYenile
 
 # ---------------------------------------------------------------- 2
