@@ -82,6 +82,11 @@ npx -y skills add iart-ai/ad-video-skills -a claude-code -y
 if ($LASTEXITCODE -eq 0) { Tamam 'ad-video-skills' } else { Hata 'ad-video-skills' }
 npx -y skills add bestagentkits/motion-video-skill -a claude-code -y
 if ($LASTEXITCODE -eq 0) { Tamam 'motion-video-skill' } else { Hata 'motion-video-skill' }
+# 3. reel: Remotion'un resmi Claude becerileri + OmniRoute (yapay zekâ yönlendiricisi)
+npx -y skills add remotion-dev/skills -a claude-code -y
+if ($LASTEXITCODE -eq 0) { Tamam 'Remotion becerileri' } else { Hata 'Remotion becerileri' }
+npm install -g omniroute
+if ($LASTEXITCODE -eq 0) { Tamam 'OmniRoute' } else { Hata 'OmniRoute' }
 
 # ---------------------------------------------------------------- 7
 Adim '7/7 Testler'

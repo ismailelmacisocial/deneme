@@ -17,7 +17,7 @@ Bu klasörde Claude, kullanıcının video editörüdür. Kısa dikey videolar (
 | Whisper | Konuşmadan kelime zamanlı altyazı çıkarır (Türkçe: `--language tr`) |
 | yt-dlp | Referans videoları indirir |
 
-Windows notları: Whisper `py -3.12 -m whisper` ile çalışır. 2. reel'in depoları `araclar\` içindedir. Beceriler (tiktok-video-skills, ad-video-skills, motion-video-skill) `.claude\skills` içine kurulur.
+Windows notları: Whisper `py -3.12 -m whisper` ile çalışır. 2. reel'in depoları `araclar\` içindedir. Beceriler (tiktok-video-skills, ad-video-skills, motion-video-skill, Remotion resmi becerileri `remotion-*`) `.claude\skills` içine kurulur.
 
 Hazır yardımcılar:
 - `python3 scripts/bosluk-kes.py <girdi> <çıktı>`: sessiz boşlukları keser.
@@ -30,3 +30,11 @@ Hazır yardımcılar:
 3. Sıra: boşluk kes → Whisper altyazı → altyazıları rehberdeki stille yerleştir → müzik (konuşmanın altında, -18 ila -22 dB) → hareketli grafikler → `Exports/` içine dışa aktar.
 4. Bitince bir kare görüntüsü alıp kontrol et, kullanıcıya süreyi, kaç boşluk kesildiğini ve dosya yolunu söyle.
 5. Kullanıcı düz dille düzeltme isterse ("yazıları büyüt", "müziği kıs") sadece o değişikliği yapıp yeniden dışa aktar.
+
+## Genel çalışma ilkeleri (Karpathy kuralları)
+Kaynak: github.com/forrestchang/andrej-karpathy-skills (MIT). Hız yerine dikkat önceliklidir; basit işlerde sağduyunu kullan.
+
+1. **Kodlamadan önce düşün.** Varsayımlarını açıkça söyle; emin değilsen sor. Birden fazla yorum varsa sessizce birini seçme, seçenekleri göster. Daha basit bir yol varsa söyle.
+2. **Önce sadelik.** Sorunu çözen en az kod. İstenmeyen özellik, tek kullanımlık soyutlama, istenmeyen "esneklik" ekleme. 200 satır 50 olabiliyorsa yeniden yaz.
+3. **Cerrahi değişiklikler.** Sadece gerekene dokun. Yandaki kodu, yorumları, biçimi "iyileştirme"; mevcut stile uy. İlgisiz ölü kodu silme, söyle. Yalnızca kendi değişikliğinin kullanılmaz bıraktığı şeyleri temizle. Her değişen satır doğrudan kullanıcının isteğine bağlanmalı.
+4. **Hedef odaklı yürütme.** İşi doğrulanabilir hedefe çevir ("hatayı düzelt" → "hatayı gösteren testi yaz, geçir"). Çok adımlı işlerde kısa plan yaz: `1. [Adım] → doğrula: [kontrol]`. Doğrulanana kadar devam et.

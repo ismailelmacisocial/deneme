@@ -19,6 +19,8 @@ echo "2/3 Remotion + HyperFrames + GSAP"
 command -v node >/dev/null || { echo "Önce Node.js LTS kurun: https://nodejs.org"; exit 1; }
 npm install
 (cd sablonlar/altyazi-tiktok && npm install)
+npx -y skills add remotion-dev/skills -a claude-code -y
+npm install -g omniroute
 
 echo "3/3 Testler"
 ffmpeg -version | head -1
