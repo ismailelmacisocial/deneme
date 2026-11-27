@@ -22,6 +22,7 @@ Windows notları: Whisper `py -3.12 -m whisper` ile çalışır. 2. reel'in depo
 Hazır yardımcılar:
 - `python3 scripts/bosluk-kes.py <girdi> <çıktı>`: sessiz boşlukları keser.
 - `sablonlar/altyazi-tiktok`: Türkçe kelime kelime altyazı (Whisper + Remotion). Kullanımı README'de.
+- `sablonlar/claude-motion`: 5 hazır hareket efekti (GlassRiddles, Vertigo, Orbit, Lockdown, PaperCut), her biri 1080x1920, 4 sn. Metinler prop olarak değişir. Önizleme `npm run efektler`, hepsini çıkarmak `npm run efektler-render`.
 - Müşteri projeleri `projeler/<müşteri-konu>/` altında tutulur (örnek: `projeler/melda-dovme-silme`).
 
 ## Çalışma kuralları

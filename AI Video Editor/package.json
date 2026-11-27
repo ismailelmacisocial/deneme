@@ -5,6 +5,8 @@
   "scripts": {
     "remotion-test": "remotion render ornekler/remotion-test/src/index.jsx Test Exports/remotion-test.mp4",
     "gsap-test": "remotion render ornekler/remotion-test/src/index.jsx GsapTest Exports/gsap-test.mp4",
+    "efektler": "remotion studio sablonlar/claude-motion/src/index.jsx",
+    "efektler-render": "remotion render sablonlar/claude-motion/src/index.jsx Hepsi Exports/claude-motion-5-efekt.mp4",
     "hyperframes-test": "cd ornekler/hf-test && hyperframes render -o ../../Exports/hf-test.mp4"
   },
   "keywords": [],

@@ -16,6 +16,8 @@ Toplam süre yaklaşık 30–45 dakika. Çoğu bekleme.
 - **Kurulum betiği:** `kurulum.ps1` aşağıdaki her şeyi tek seferde kurar ve test eder.
 - **Depo 5, Türkçe altyazı:** `sablonlar\altyazi-tiktok` klasöründe, **Türkçeye uyarlanmış** olarak hazır. Orijinalinde Türkçe harfler bozuk çıkıyordu, düzeltildi.
 - **Boşluk kesici:** `scripts\bosluk-kes.py` videodaki sessiz anları keser.
+- **3. reel (5 Claude skill'i, ilk 3'ü):** Remotion'un resmi Claude becerileri ve OmniRoute `kurulum.ps1`'e eklendi. Karpathy çalışma kuralları `CLAUDE.md`'ye yazıldı. Headroom ve Task Observer kurulmadı.
+- **4. reel (5 Claude Motion efekti):** Glass Riddles, Vertigo, Orbit, Lockdown, Paper Cut efektleri `sablonlar\claude-motion` klasöründe hazır Remotion şablonu olarak yazıldı ve bulutta test edildi. Bu reel'de kurulacak ayrı bir program yok.
 - **Test edilenler:** Remotion, HyperFrames, GSAP, FFmpeg ve yt-dlp bulutta test edildi. Whisper'ın altyazı testi bulutta yapılamadı (model dosyası indirilemedi). Windows betiği Windows'ta denenmedi; hata çıkarsa ekran görüntüsünü Claude'a gönderin.
 
 ---
@@ -134,6 +136,27 @@ Raw Footage'daki [DOSYA ADI] videomu Instagram Reels'e çevir. Boşlukları kes,
 ```
 4. Bitmiş video **Exports** klasörüne gelir.
 5. Beğenmediğin yeri düz dille söyle: "yazıları büyüt", "ilk 2 saniyeyi kes", "altyazı sarı olsun".
+
+### ADIM 11: OmniRoute'u ayarla (3. reel, isteğe bağlı)
+OmniRoute, Claude Code gibi araçları tek bir adresten birçok yapay zekâ sağlayıcısına (bir kısmı ücretsiz) bağlayan bir yönlendirici. `kurulum.ps1` onu kurar, ama hesapları sen bağlamalısın:
+1. Terminalde `omniroute` yaz. Sunucu başlar ve tarayıcıda yönetim paneli açılır (açılmazsa `omniroute dashboard`).
+2. Panelde kullanmak istediğin sağlayıcıları bağla (ör. Gemini, Groq, OpenRouter). Her biri için o sitede hesap açıp API anahtarı alman gerekir.
+3. Panel sana bir adres ve anahtar verir. Claude Code'u bu adrese yönlendirmek için panelin "Claude Code" bölümündeki adımları izle.
+
+Dikkat: OmniRoute'a yönlendirdiğin her istek (kodun, dosyaların) seçtiğin sağlayıcılara gider. Ücretsiz katmanlar verini eğitim için kullanabilir. Claude aboneliğini başka araçlar üzerinden kullanmak Anthropic kurallarına aykırı olabilir. Müşteri işinde dikkatli kullan. İstemezsen bu adımı atlayabilirsin, video kurgusu için gerekmiyor.
+
+### ADIM 12: Hareket efektlerini kullan (4. reel)
+Hazır 5 efekti görmek için AI Video Editor klasöründe terminale yaz:
+```
+npm run efektler
+```
+Tarayıcıda Remotion Studio açılır. Soldan efekti seç (GlassRiddles, Vertigo, Orbit, Lockdown, PaperCut, Hepsi). Sağdaki panelden yazıları değiştirebilirsin.
+
+Videoya dökmek için Claude'a şunu yaz:
+```
+sablonlar/claude-motion'daki Orbit efektini "YENİ ÜRÜN" başlığıyla Exports'a çıkar.
+```
+Kurgu sırasında da kullanabilirsin: "videonun girişine Vertigo efekti koy, başlık markamın adı olsun".
 
 ---
 
